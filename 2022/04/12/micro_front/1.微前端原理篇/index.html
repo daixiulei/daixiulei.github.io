@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>微前端原理篇 | One For Me</title><meta name="keywords" content="架构,微前端"><meta name="author" content="Jing Yang"><meta name="copyright" content="Jing Yang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微前端是当下比较热门的技术架构，在面试过程中被问起的频次很高，本篇将详细探索微前端的应用及原理。 什么是微前端微前端起源于微服务的思想，将微服务的思想应用在浏览器端，其核心是将 web 端的单一应用分解成一个主应用+多个子应用的结构，各个子应用独立运行，独立开发，独立部署，代码和业务层面相互解耦。 微前端兴起的原因微前端最早在 2016 年底被提出，那段时间正好是单页面应用横行的时候，三大框架（R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微前端原理篇">
+<meta property="og:url" content="https://daixiulei.github.io/2022/04/12/micro_front/1.%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%8E%9F%E7%90%86%E7%AF%87/index.html">
+<meta property="og:site_name" content="One For Me">
+<meta property="og:description" content="微前端是当下比较热门的技术架构，在面试过程中被问起的频次很高，本篇将详细探索微前端的应用及原理。 什么是微前端微前端起源于微服务的思想，将微服务的思想应用在浏览器端，其核心是将 web 端的单一应用分解成一个主应用+多个子应用的结构，各个子应用独立运行，独立开发，独立部署，代码和业务层面相互解耦。 微前端兴起的原因微前端最早在 2016 年底被提出，那段时间正好是单页面应用横行的时候，三大框架（R">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daixiulei.github.io/images/default_cover.png">
+<meta property="article:published_time" content="2022-04-12T12:19:36.000Z">
+<meta property="article:modified_time" content="2022-09-17T04:04:18.871Z">
+<meta property="article:author" content="Jing Yang">
+<meta property="article:tag" content="架构">
+<meta property="article:tag" content="微前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://daixiulei.github.io/images/default_cover.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://daixiulei.github.io/2022/04/12/micro_front/1.%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%8E%9F%E7%90%86%E7%AF%87/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微前端原理篇',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-17 12:04:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/Golf.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_cover.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">One For Me</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">微前端原理篇</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-12T12:19:36.000Z" title="发表于 2022-04-12 20:19:36">2022-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-17T04:04:18.871Z" title="更新于 2022-09-17 12:04:18">2022-09-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9E%B6%E6%9E%84/">架构</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9E%B6%E6%9E%84/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="微前端原理篇"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>微前端是当下比较热门的技术架构，在面试过程中被问起的频次很高，本篇将详细探索微前端的应用及原理。</p>
+<h3 id="什么是微前端"><a href="#什么是微前端" class="headerlink" title="什么是微前端"></a>什么是微前端</h3><p>微前端起源于微服务的思想，将微服务的思想应用在浏览器端，其核心是将 web 端的单一应用分解成一个主应用+多个子应用的结构，各个子应用独立运行，独立开发，独立部署，代码和业务层面相互解耦。</p>
+<h3 id="微前端兴起的原因"><a href="#微前端兴起的原因" class="headerlink" title="微前端兴起的原因"></a>微前端兴起的原因</h3><p>微前端最早在 2016 年底被提出，那段时间正好是单页面应用横行的时候，三大框架（<code>React</code>、<code>Vue</code>、<code>Angular</code>）如日中天，但随着时间推进，这些单页面应用体积越来越大，构建时间变得越来越慢，性能也越来越差，想拆分或者重构也无从下手；做了新系统之后想要兼容老系统，只能通过 iframe 的方式嵌入，产生隔离感；跨团队的项目可能因为技术栈的不统一，需要增加学习成本或者干脆被放弃；微前端的出现正是为了解决这些问题。</p>
+<ul>
+<li><p><strong>应用拆分</strong>：我们可以根据自己的业务特点，将公共部分如左侧菜单、顶部工具栏等拆分到主应用，具体业务实现根据其业务条线换分到不同子应用中，对整个系统进行解耦。这样，首先来说可以将巨石应用进行分解，将一个应用变成多个应用，减少了每个应用的体积，相应的就会带来效率上的提升；其次，如果增加新业务线也可以通过增加新的子应用的方式来增加，无需侵入之前的业务，对之前的项目升级也可以单独升级其中的一个子应用，从而降低对整体的影响。</p>
+</li>
+<li><p><strong>技术栈无关</strong>：根据微前端的特点，各个子应用都是一个独立的应用，我们可以对这些子应用使用不同的技术框架，无论你是 <code>React</code> 还是 <code>Vue</code>，都可以独立运行在微前端框架下，当然你还得保证你整个应用的风格是一致的，否则会产生很强的割裂感。</p>
+</li>
+</ul>
+<h3 id="微前端的技术方案"><a href="#微前端的技术方案" class="headerlink" title="微前端的技术方案"></a>微前端的技术方案</h3><p>在介绍微前端的方案之前，先说一下之前经历过的一种架构模型，当时称之为前端微服务。</p>
+<p>这种技术架构也是借鉴于微服务的思想，将前端划分成了一个个子应用，但是与现在的微前端的方案不同，这种方式没有主应用，所有的子应用采用相同的架构模型，也就是同一个子应用的 <code>Copy</code>。之前采用的技术框架是 <code>React SSR + BFF层</code>，共用部分则是采用的 <code>npm</code> 包的方式，如左侧菜单，顶部状态栏，路由的分发则依赖于 <code>nginx</code> 服务器和 BFF 层，<code>nginx</code> 根据域名和一级路由转发到响应的前端微服务，<code>BFF</code> 再根据子路由渲染对应的页面。</p>
+<p><img src="%E5%89%8D%E7%AB%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1.png" alt="前端微服务"></p>
+<p>这种架构的优点和微前端很像，就是应用的拆分，巨大的业务拆分到几十个项目，业务可以相互解耦。但是也有很明显的缺点：</p>
+<ul>
+<li>子应用相互隔离。由于本身就是一个完整的系统，不同应用之间相互跳转，会引起页面刷新，导致短暂的白屏；再者子应用之间的相互通信只能通过 url 携带参数的方式传递；再就是无法进行预加载，没法做加载性能的优化。</li>
+<li>公共内容使用 npm 包管控。使用 npm 包就意味着每次更新都需要发版，发版完成之后所有用的子应用都需要更新，上线之后每次发布都会导致批量更新，需要验证的范围非常大，这个是非常不好的一个点。</li>
+</ul>
+<p>所以，这种架构模式在当时算是一个比较折中的方案，虽然能够对业务进行拆分，但是也有着不可回避的问题。微前端的出现，正好弥补了这种架构的缺点。</p>
+<p>微前端的方案有很多，有类似上述的暂且能算作微前端的运维服务的转发，还有依赖 <code>iframe</code> 实现的方案，依赖 <code>WebComponent</code> 的方案，还有基于 SPA 特性的 <code>single-SPA</code>。</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>描述</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>运维服务转发</td>
+<td>依赖于运维服务器对根路由的解析，然后转发到不同的应用中</td>
+<td>实现比较简单，能够拆解应用</td>
+<td>依赖于运维服务的转发，子应用之间相互跳转会引起浏览器的刷新，体验不好</td>
+</tr>
+<tr>
+<td><code>iframe</code></td>
+<td>主应用嵌入 <code>iframe</code>，<code>iframe</code> 打开子应用</td>
+<td><code>iframe</code> 作为天然沙箱，各个应用之间相互隔离，互相不影响。主子应用通信依赖于 <code>contentWindow</code> 和 <code>postMessage</code></td>
+<td><code>iframe</code> 成也因为隔离，败也因为隔离。正是因为隔离效果太强，会让主子应用之间产生割裂感，如弹窗的蒙层，只能覆盖在子应用中，带来的体验也是非常不好的。</td>
+</tr>
+<tr>
+<td><code>WebComponent</code></td>
+<td><code>WebComponent</code> 也是浏览器自带的，具有天然隔离效果的一种方案，其 <code>css</code> 和 <code>javascript</code> 也都是独立部署应用的</td>
+<td>天然隔离</td>
+<td>兼容性的问题，再就是子应用需要改写成 <code>WebComponent</code> 的写法，改造成本比较高</td>
+</tr>
+<tr>
+<td><code>single-SPA</code></td>
+<td>由一个主应用和多个子应用组成，子应用独立部署，主应用负责路由分发，消息传递，应用的加载、卸载、子应用的隔离。</td>
+<td>纯前端完成，改造便捷，拥有以上几种方案的优点</td>
+<td>方案复杂，需要特别关注子应用的隔离，防止样式和 <code>JavaScript</code> 变量的污染</td>
+</tr>
+</tbody></table>
+<h3 id="微前端的实际应用"><a href="#微前端的实际应用" class="headerlink" title="微前端的实际应用"></a>微前端的实际应用</h3><p>详细请看 微前端实践篇</p>
+<h3 id="微前端的核心原理"><a href="#微前端的核心原理" class="headerlink" title="微前端的核心原理"></a>微前端的核心原理</h3><p>微前端实现中有几个比较核心的部分：路由分发（应用注册、路由劫持、生命周期）、应用隔离（JS 沙箱、CSS 样式隔离）、全局通信，下面将以 <code>qiankun</code> 为例，从这几个方面展开描述。</p>
+<h4 id="应用注册"><a href="#应用注册" class="headerlink" title="应用注册"></a>应用注册</h4><p>首先看一下 <code>qiankun</code> 中应用如何注册：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">registerMicroApps</span>([</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;app1&#x27;</span>,</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;//localhost:8080&#x27;</span>,</span><br><span class="line">    <span class="attr">container</span>: <span class="string">&#x27;#container&#x27;</span>,</span><br><span class="line">    <span class="attr">activeRule</span>: <span class="string">&#x27;/react&#x27;</span>,</span><br><span class="line">    <span class="attr">props</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;kuitos&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>大致有这么几个参数：</p>
+<ul>
+<li><code>name</code>：子应用的名称</li>
+<li><code>entry</code>：子应用的入口</li>
+<li><code>container</code>：子应用注册的 <code>DOM</code> 节点</li>
+<li><code>activeRule</code>：子应用激活的路由规则</li>
+<li><code>loader</code>：子应用加载状态变化时的回调方法</li>
+<li><code>props</code>：主应用传递给子应用的数据</li>
+</ul>
+<p>可以看到这个和我们平时写路由非常相似，<code>entry</code> 对应着组件，<code>activeRule</code> 对应的路由的 <code>path</code>，所以基本可以参考路由的模型，只要在<code>activeRule</code> 变化时，加载对应的组件即可。这个比较简单，只要在内存中将 app list 保存起来即可。</p>
+<h4 id="路由劫持"><a href="#路由劫持" class="headerlink" title="路由劫持"></a>路由劫持</h4><p>注册完成之后，下一步就是如何将子应用渲染出来了。上面也提到了，注册应用时配置了 <code>activeRule</code>，如果你看过 <code>ReactRouter</code> 或者 <code>VueRouter</code>的话，那么很容易想到该怎么做。</p>
+<p>单页面应用的路由分为两种：<code>history</code> 模式和 <code>hash</code> 模式。</p>
+<ul>
+<li><code>hash</code> 模式：路由以#开头，如 <code>http://localhost:8080/#/example</code>，这种方式可以通过监听 <code>hashchange</code> 的来监听路由是否发生变化，但首次进入页面时不会触发 <code>hashchange</code> 事件，这时我们需要搭配 <code>load</code> 事件来完成首次进入时的监听。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;hashchange&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">hash</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;onload&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">hash</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>history</code>模式：路由和我们常见的地址一致，但是 <code>history</code> 无法监听，只能通过重写 <code>history</code> 的 <code>replaceStatement</code> 和 <code>pushStatement</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> originReplace = <span class="variable language_">window</span>.<span class="property">history</span>.<span class="property">replaceStatement</span>;</span><br><span class="line"><span class="keyword">const</span> originPush = <span class="variable language_">window</span>.<span class="property">history</span>.<span class="property">pushStatement</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">history</span>.<span class="property">pushStatement</span> = <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">  <span class="comment">// 挂载子应用</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// 调用原有方法</span></span><br><span class="line">  originPush.<span class="title function_">apply</span>(<span class="variable language_">window</span>.<span class="property">history</span>, args)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">history</span>.<span class="property">originReplace</span> = <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">  <span class="comment">// 切换子应用</span></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用原有方法</span></span><br><span class="line">  originReplace.<span class="title function_">apply</span>(<span class="variable language_">window</span>.<span class="property">history</span>, args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其大致原理就是如此，详情可以参考 <code>VueRouter</code> 或者 <code>ReactRouter</code> 的实现。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jing Yang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://daixiulei.github.io/2022/04/12/micro_front/1.%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%8E%9F%E7%90%86%E7%AF%87/">https://daixiulei.github.io/2022/04/12/micro_front/1.%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%8E%9F%E7%90%86%E7%AF%87/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://daixiulei.github.io" target="_blank">One For Me</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9E%B6%E6%9E%84/">架构</a><a class="post-meta__tags" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</a></div><div class="post_share"><div class="social-share" data-image="/images/default_cover.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/16/leetcode/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"><img class="prev-cover" src="/images/Leetcode.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Leetcode/1.两数之和</div></div></a></div><div class="next-post pull-right"><a href="/2022/04/01/npm/1.package.json%E8%AF%A6%E8%A7%A3/"><img class="next-cover" src="/images/default_cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">package.json详解</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/Golf.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jing Yang</div><div class="author-info__description">用有限的一生探索无穷的世界</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客为个人总结，锻炼书面表达以及思考能力而建，不保证完全正确性，如有错误，敬请指出</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E5%89%8D%E7%AB%AF"><span class="toc-number">1.</span> <span class="toc-text">什么是微前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%85%B4%E8%B5%B7%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">2.</span> <span class="toc-text">微前端兴起的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">微前端的技术方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">微前端的实际应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">微前端的核心原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%B3%A8%E5%86%8C"><span class="toc-number">5.1.</span> <span class="toc-text">应用注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%8A%AB%E6%8C%81"><span class="toc-number">5.2.</span> <span class="toc-text">路由劫持</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/09/inter/scene/1.%E8%AF%B7%E6%B1%82%E6%8E%A7%E5%88%B6%E5%99%A8/" title="面试官：请帮我设计一个每次最多只能发送 6 个请求的控制器"><img src="/images/default_cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试官：请帮我设计一个每次最多只能发送 6 个请求的控制器"/></a><div class="content"><a class="title" href="/2023/01/09/inter/scene/1.%E8%AF%B7%E6%B1%82%E6%8E%A7%E5%88%B6%E5%99%A8/" title="面试官：请帮我设计一个每次最多只能发送 6 个请求的控制器">面试官：请帮我设计一个每次最多只能发送 6 个请求的控制器</a><time datetime="2023-01-09T01:43:57.000Z" title="发表于 2023-01-09 09:43:57">2023-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/23/leetcode/202.%E5%BF%AB%E4%B9%90%E6%95%B0/" title="Leetcode/202.快乐数"><img src="/images/Leetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Leetcode/202.快乐数"/></a><div class="content"><a class="title" href="/2022/09/23/leetcode/202.%E5%BF%AB%E4%B9%90%E6%95%B0/" title="Leetcode/202.快乐数">Leetcode/202.快乐数</a><time datetime="2022-09-23T02:04:23.000Z" title="发表于 2022-09-23 10:04:23">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/19/fe_workspace/1.VSCode%E6%8F%92%E4%BB%B6%E5%BD%92%E7%BA%B3/" title="VSCode插件归纳"><img src="/images/default_cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VSCode插件归纳"/></a><div class="content"><a class="title" href="/2022/09/19/fe_workspace/1.VSCode%E6%8F%92%E4%BB%B6%E5%BD%92%E7%BA%B3/" title="VSCode插件归纳">VSCode插件归纳</a><time datetime="2022-09-19T02:31:19.000Z" title="发表于 2022-09-19 10:31:19">2022-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/17/hello-world/" title="Hello World"><img src="/images/default_cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/09/17/hello-world/" title="Hello World">Hello World</a><time datetime="2022-09-17T04:04:18.868Z" title="发表于 2022-09-17 12:04:18">2022-09-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/27/leetcode/7.%E6%95%B4%E6%95%B0%E7%BF%BB%E8%BD%AC/" title="Leecode/7.整数翻转"><img src="/images/Leetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Leecode/7.整数翻转"/></a><div class="content"><a class="title" href="/2022/06/27/leetcode/7.%E6%95%B4%E6%95%B0%E7%BF%BB%E8%BD%AC/" title="Leecode/7.整数翻转">Leecode/7.整数翻转</a><time datetime="2022-06-27T02:40:54.000Z" title="发表于 2022-06-27 10:40:54">2022-06-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Jing Yang</div><div class="footer_custom_text">「血肉苦若，一键飞升 ↑↑↓↓←→←→BABA」</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script src="/js/randomTopImage.js" id="randomTopImage"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

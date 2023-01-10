@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VSCode插件归纳 | One For Me</title><meta name="keywords" content="前端工具"><meta name="author" content="Jing Yang"><meta name="copyright" content="Jing Yang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="最近因为某些原因工作变动，原本工作的电脑要归还，新电脑需要搭建新的开发环境。安装一些合适的、好用的VSCode插件真的是能够大大提升开发效率，所以今天来整理下工作中常用的、好用的一些VSCode插件，对以后更换或者升级设备也会有帮助。 Tabnine AITabnine AI 是我目前用的过最好用的智能代码提示插件，其免费的功能完全够用，如果想使用更高级的功能可以选择付费版。相同功能的插件还有 G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode插件归纳">
+<meta property="og:url" content="https://daixiulei.github.io/2022/09/19/fe_workspace/1.VSCode%E6%8F%92%E4%BB%B6%E5%BD%92%E7%BA%B3/index.html">
+<meta property="og:site_name" content="One For Me">
+<meta property="og:description" content="最近因为某些原因工作变动，原本工作的电脑要归还，新电脑需要搭建新的开发环境。安装一些合适的、好用的VSCode插件真的是能够大大提升开发效率，所以今天来整理下工作中常用的、好用的一些VSCode插件，对以后更换或者升级设备也会有帮助。 Tabnine AITabnine AI 是我目前用的过最好用的智能代码提示插件，其免费的功能完全够用，如果想使用更高级的功能可以选择付费版。相同功能的插件还有 G">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daixiulei.github.io/images/default_cover.png">
+<meta property="article:published_time" content="2022-09-19T02:31:19.000Z">
+<meta property="article:modified_time" content="2022-09-21T03:06:47.609Z">
+<meta property="article:author" content="Jing Yang">
+<meta property="article:tag" content="前端工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://daixiulei.github.io/images/default_cover.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://daixiulei.github.io/2022/09/19/fe_workspace/1.VSCode%E6%8F%92%E4%BB%B6%E5%BD%92%E7%BA%B3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'VSCode插件归纳',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-21 11:06:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/Golf.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/default_cover.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">One For Me</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">VSCode插件归纳</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-19T02:31:19.000Z" title="发表于 2022-09-19 10:31:19">2022-09-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-21T03:06:47.609Z" title="更新于 2022-09-21 11:06:47">2022-09-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="VSCode插件归纳"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>最近因为某些原因工作变动，原本工作的电脑要归还，新电脑需要搭建新的开发环境。安装一些合适的、好用的VSCode插件真的是能够大大提升开发效率，所以今天来整理下工作中常用的、好用的一些VSCode插件，对以后更换或者升级设备也会有帮助。</p>
+<h2 id="Tabnine-AI"><a href="#Tabnine-AI" class="headerlink" title="Tabnine AI"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI</a></h2><p><code>Tabnine AI</code> 是我目前用的过最好用的智能代码提示插件，其免费的功能完全够用，如果想使用更高级的功能可以选择付费版。相同功能的插件还有 <code>Github Copilot</code>，前段时间比较热门的代码智能提示插件，由 <code>Github</code> 重磅打造，不过后面传出其只能提示的代码是从github上查找类似的代码直接复制到本地，一不小心会造成抄袭的问题🐶 ，而且听说同样需要收费。</p>
+<p><code>Tabnine AI</code> 基于本地代码，你曾经写过的一些内容，智能提取出接下来你可能要写的内容，比如已经写好的变量名称，或者格式类似的另一段代码，基本可以只使用回车就能够完成一段代码的书写。</p>
+<p><img src="Tabnine%20AI.gif" alt="Tabnine AI"></p>
+<h2 id="Auto-Close-Tag"><a href="#Auto-Close-Tag" class="headerlink" title="Auto Close Tag"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag">Auto Close Tag</a></h2><p>我们在写<code>HTML</code>过程中，包括<code>React</code>的<code>JSX</code>和<code>Vue</code>的<code>template</code>，都会去写一些<code>HTML</code>标签，常常写完开始标签后，会忘记写关闭标签，或者关闭标签写成了开始标签，或者需要写完之后再回到中间来写标签内容，<code>Auto Close Tag</code>就是一款能够自动关闭标签的插件，在我们写好开始标签后会自动插入结束标签。</p>
+<p><img src="Auto%20Close%20Tag1.gif" alt="Auto Close Tag"></p>
+<p>也可以手动命令或者快捷键添加关闭标签（<code>Win</code>下<code>Alt + .</code>，<code>Mac</code>下<code>Command + options + .</code>）。</p>
+<p><img src="Auto%20Close%20Tag2.gif" alt="手动命令关闭"></p>
+<h2 id="Auto-Rename-Tag"><a href="#Auto-Rename-Tag" class="headerlink" title="Auto Rename Tag"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag">Auto Rename Tag</a></h2><p>这款插件也是用于操作开始和结束标签的，如果我们想修改标签名称或者组件名称的话，需要修改开始标签，然后复制替换掉结束标签，这个插件则是在我们修改开始标签时，实时查找结束标签并修改成对应的名称。<br><img src="Auto%20Rename%20Tag.gif" alt="Auto Rename Tag"></p>
+<p><code>Auto Close Tag</code>和<code>Auto Rename Tag</code>的作者又开发了一款插件<code>Auto Complete Tag</code>将这两个插件的功能整合到了一起，具体参考 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-complete-tag"><code>Auto Complete Tag</code></a></p>
+<h2 id="Auto-Import"><a href="#Auto-Import" class="headerlink" title="Auto Import"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=steoates.autoimport">Auto Import</a></h2><p><code>Auto Import</code> 是另一款非常好用的插件，我们在写<code>TS</code>的时候，尤其是写<code>TSX</code>的时候，常常会写非常多的 <code>import</code>，当代码量非常大时，经常需要上下来回倒，去引入新的组件，而<code>Auto Import</code>则在我们添加方法组件时，自动帮我们引入对应的方法名称，非常的便捷。需要注意的是只能在<code>TS</code>文件中生效。</p>
+<h2 id="Path-Autocomplete"><a href="#Path-Autocomplete" class="headerlink" title="Path Autocomplete"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete">Path Autocomplete</a></h2><p>刚才也说到了，<code>Auto Import</code>只能在<code>TS</code>环境下工作，那如果在<code>JS</code>或者<code>html</code>中如何能方便快捷的查找路径呢？<code>Path Autocomplete</code>可以提供路径的自动建议，当你在输入<code>./</code>或者其他的路径相关的字符时，<code>Path Autocomplete</code>可以自动查找相关的路劲，并进行提示，也是一种比较方便的操作。<br><img src="path-autocomplete.gif" alt="Path Autocomplete"></p>
+<h2 id="Highlight-Matching-Tag"><a href="#Highlight-Matching-Tag" class="headerlink" title="Highlight Matching Tag"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag">Highlight Matching Tag</a></h2><p><code>Highlight Matching Tag</code>是用于高亮匹配的标签对的插件，在VSCode自带的标签匹配功能中，对匹配到的标签对，仅仅对添加了一个<code>underline</code>的样式，不是非常的明显，很容易被忽略，<code>Highlight Matching Tag</code>则是对这个样式进行了增强：加深了下划线的颜色，在右侧滚动条处进行了行标记，即使是在属性中添加的标签，也能进行高亮处理。<br><img src="HighlightMatchingTag.gif" alt="Highlight Matching Tag"></p>
+<h2 id="Auto-Comment-Blocks"><a href="#Auto-Comment-Blocks" class="headerlink" title="Auto Comment Blocks"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=kevinkyang.auto-comment-blocks">Auto Comment Blocks</a></h2><p><code>Auto Comment Blocks</code> 是可以帮助我们自动完成注释的结束符号，也能在多行注释换行的时候自动格式化，功能和以上的Auto比较类似。</p>
+<p><img src="Auto%20Comment%20Blocks.gif" alt="Auto Comment Blocks"></p>
+<h2 id="Better-Comment"><a href="#Better-Comment" class="headerlink" title="Better Comment"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments">Better Comment</a></h2><p>我们在写注释的过程中是不是会有一个问题，就是注释的样式太过单一，想做一个比较突出或者重点的标注，却没有什么好方法？<code>Better Comment</code> 就是一款帮助我们做这些事情的插件，他可以通过一些特殊的格式，对重点区域进行高亮标注。<br>根据注释的类型，它将注释划分为警告（Alert）、查询（Queries）、待办（TODOs）、高亮（Highlights）等。<br><img src="better-comments.png" alt="Better Comment"></p>
+<p>还可以通过配置选项设置一些你自己需要的注释类型。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;better-comments.tags&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;!&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#FF2D00&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strikethrough&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;underline&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transparent&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;bold&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;italic&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;?&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#3498DB&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strikethrough&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;underline&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transparent&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;bold&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;italic&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;//&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#474747&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strikethrough&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;underline&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transparent&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;bold&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;italic&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;todo&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#FF8C00&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strikethrough&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;underline&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transparent&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;bold&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;italic&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#98C379&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strikethrough&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;underline&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transparent&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;bold&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;italic&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Comment-Anchors"><a href="#Comment-Anchors" class="headerlink" title="Comment Anchors"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors">Comment Anchors</a></h2><p><code>Comment Anchors</code>是通过注释可以对项目的代码进行大点，我们可以通过左侧的船锚标志，快速的找到项目打过点的位置。</p>
+<p><code>Comment Anchors</code> 默认设置带有以下标签的锚点：</p>
+<ul>
+<li>ANCHOR - 用于指示文件中的一个部分</li>
+<li>TODO - 等待完成的项目</li>
+<li>FIXME - 需要修正错误的项目</li>
+<li>STUB - 用于生成的默认片段</li>
+<li>NOTE - 特定代码部分的重要说明</li>
+<li>REVIEW - 需要额外审查的项目</li>
+<li>SECTION - 用于定义区域（参见“分层锚点”）</li>
+<li>LINK - 用于链接到可以在编辑器中打开的文件（请参阅“链接锚点”）</li>
+</ul>
+<p>需要注意的是，所有字母一定要大写，并且就算不是在注释内，它也是生效的（可能是个bug 罒ω罒）。<br>不同的锚点有着不同的颜色：<br><img src="all-anchors.png" alt="Comment Anchors"></p>
+<p>不同的锚点也有着不同的功能，也可以配置默认以外的锚点，详细请见<a target="_blank" rel="noopener" href="https://github.com/StarlaneStudios/vscode-comment-anchors">Comment Anchors</a></p>
+<h2 id="Comment-Translate"><a href="#Comment-Translate" class="headerlink" title="Comment Translate"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate">Comment Translate</a></h2><p>接下来是一个对于看源码来说非常好用的一个插件<code>Comment Translate</code>，它使用谷歌翻译，在鼠标hover注释时，能够快速的把英文翻译成中文，这对于经常看源码但是英文又不好的同学来说，简直是一个福利性插件。<br><img src="CommentTranslate.gif" alt="Comment Translate"></p>
+<h2 id="Draw-io"><a href="#Draw-io" class="headerlink" title="Draw.io"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio">Draw.io</a></h2><p><code>Draw.io</code>，一个把画表制图搬到了<code>VSCode</code>的插件，它采用的<code>Draw.io</code>的离线版本，可以在<code>VSCode</code>中编辑以<code>.drawio</code>、<code>.dio</code>、<code>.drawio.svg</code>、<code>.drawio.png</code>结尾的文件，还支持以上几种格式的互相转换。</p>
+<p><img src="drawio.gif" alt="drawio"></p>
+<h2 id="Prettier"><a href="#Prettier" class="headerlink" title="Prettier"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a></h2><p>接下来是我最喜欢的一款插件-<code>Prettier</code>，在刚参加工作的前几年时，对代码格式不是特别的严谨，写出来的代码歪七扭八，很多时候都会被<code>ESLint</code>给拦截住，<code>Prettier</code>给了我很大的帮助，他可以自动将杂乱的代码格式化成整洁的代码，通篇看下来沁人心脾，而我在使用的过程中也受到了<code>Prettier</code>的影响，在写的时候就会自觉地调整代码的格式，保持整体的一个整洁程度。而且<code>Prettier</code>也可以和<code>ESLint</code>做联动，不管是对于整理代码风格还是形成良好的代码习惯，都会有很大的帮助。<br>当然也有需要注意的地方，因为它会对保存过的文件进行格式化，所以对于团队来说，大家都使用<code>Prettier</code>是最好不过的，否则可能会出现代码冲突等问题。</p>
+<h2 id="CodeSnap"><a href="#CodeSnap" class="headerlink" title="CodeSnap"></a><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=adpyke.codesnap">CodeSnap</a></h2><p>不知道你们在看博客的时候，有没有看到过别人展示出来的一张非常好看的代码的图片，没错，<code>CodeSnap</code>就是这么一个插件，它可以根据你当前编辑器的主题，将你的代码转换成不同的风格，并且生成对应的图片。<br>而且它非常的简单易用，只需要选中你想图片化的代码，然后<code>Cmd + Shift + P</code>, 然后选择<code>CodeSnap</code>就可以预览图片，然后我们重新选择其他的代码，图片也会实时变化，点击快门键就会进行保存。<br><img src="codesnap.png" alt="CodeSnap"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>写了这么多，还是有很多好用的插件没有来得及写上，后续有机会的话，会再继续完善补充，那么，大家再见！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jing Yang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://daixiulei.github.io/2022/09/19/fe_workspace/1.VSCode%E6%8F%92%E4%BB%B6%E5%BD%92%E7%BA%B3/">https://daixiulei.github.io/2022/09/19/fe_workspace/1.VSCode%E6%8F%92%E4%BB%B6%E5%BD%92%E7%BA%B3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://daixiulei.github.io" target="_blank">One For Me</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a></div><div class="post_share"><div class="social-share" data-image="/images/default_cover.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/23/leetcode/202.%E5%BF%AB%E4%B9%90%E6%95%B0/"><img class="prev-cover" src="/images/Leetcode.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Leetcode/202.快乐数</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/17/hello-world/"><img class="next-cover" src="/images/default_cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/Golf.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jing Yang</div><div class="author-info__description">用有限的一生探索无穷的世界</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客为个人总结，锻炼书面表达以及思考能力而建，不保证完全正确性，如有错误，敬请指出</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tabnine-AI"><span class="toc-number">1.</span> <span class="toc-text">Tabnine AI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Close-Tag"><span class="toc-number">2.</span> <span class="toc-text">Auto Close Tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Rename-Tag"><span class="toc-number">3.</span> <span class="toc-text">Auto Rename Tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Import"><span class="toc-number">4.</span> <span class="toc-text">Auto Import</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-Autocomplete"><span class="toc-number">5.</span> <span class="toc-text">Path Autocomplete</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Highlight-Matching-Tag"><span class="toc-number">6.</span> <span class="toc-text">Highlight Matching Tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Comment-Blocks"><span class="toc-number">7.</span> <span class="toc-text">Auto Comment Blocks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Better-Comment"><span class="toc-number">8.</span> <span class="toc-text">Better Comment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comment-Anchors"><span class="toc-number">9.</span> <span class="toc-text">Comment Anchors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comment-Translate"><span class="toc-number">10.</span> <span class="toc-text">Comment Translate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Draw-io"><span class="toc-number">11.</span> <span class="toc-text">Draw.io</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prettier"><span class="toc-number">12.</span> <span class="toc-text">Prettier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CodeSnap"><span class="toc-number">13.</span> <span class="toc-text">CodeSnap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">14.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/09/inter/scene/1.%E8%AF%B7%E6%B1%82%E6%8E%A7%E5%88%B6%E5%99%A8/" title="面试官：请帮我设计一个每次最多只能发送 6 个请求的控制器"><img src="/images/default_cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试官：请帮我设计一个每次最多只能发送 6 个请求的控制器"/></a><div class="content"><a class="title" href="/2023/01/09/inter/scene/1.%E8%AF%B7%E6%B1%82%E6%8E%A7%E5%88%B6%E5%99%A8/" title="面试官：请帮我设计一个每次最多只能发送 6 个请求的控制器">面试官：请帮我设计一个每次最多只能发送 6 个请求的控制器</a><time datetime="2023-01-09T01:43:57.000Z" title="发表于 2023-01-09 09:43:57">2023-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/23/leetcode/202.%E5%BF%AB%E4%B9%90%E6%95%B0/" title="Leetcode/202.快乐数"><img src="/images/Leetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Leetcode/202.快乐数"/></a><div class="content"><a class="title" href="/2022/09/23/leetcode/202.%E5%BF%AB%E4%B9%90%E6%95%B0/" title="Leetcode/202.快乐数">Leetcode/202.快乐数</a><time datetime="2022-09-23T02:04:23.000Z" title="发表于 2022-09-23 10:04:23">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/19/fe_workspace/1.VSCode%E6%8F%92%E4%BB%B6%E5%BD%92%E7%BA%B3/" title="VSCode插件归纳"><img src="/images/default_cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VSCode插件归纳"/></a><div class="content"><a class="title" href="/2022/09/19/fe_workspace/1.VSCode%E6%8F%92%E4%BB%B6%E5%BD%92%E7%BA%B3/" title="VSCode插件归纳">VSCode插件归纳</a><time datetime="2022-09-19T02:31:19.000Z" title="发表于 2022-09-19 10:31:19">2022-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/17/hello-world/" title="Hello World"><img src="/images/default_cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/09/17/hello-world/" title="Hello World">Hello World</a><time datetime="2022-09-17T04:04:18.868Z" title="发表于 2022-09-17 12:04:18">2022-09-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/27/leetcode/7.%E6%95%B4%E6%95%B0%E7%BF%BB%E8%BD%AC/" title="Leecode/7.整数翻转"><img src="/images/Leetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Leecode/7.整数翻转"/></a><div class="content"><a class="title" href="/2022/06/27/leetcode/7.%E6%95%B4%E6%95%B0%E7%BF%BB%E8%BD%AC/" title="Leecode/7.整数翻转">Leecode/7.整数翻转</a><time datetime="2022-06-27T02:40:54.000Z" title="发表于 2022-06-27 10:40:54">2022-06-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Jing Yang</div><div class="footer_custom_text">「血肉苦若，一键飞升 ↑↑↓↓←→←→BABA」</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script src="/js/randomTopImage.js" id="randomTopImage"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
